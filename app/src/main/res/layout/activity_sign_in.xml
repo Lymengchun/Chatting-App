@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <!--Start-->
+
+    <!--Logo-->
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@color/secondary"
+
+        >
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/icon_chatting_app"
+                android:id="@+id/id_icon"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/secondary1"
+                android:layout_below="@id/id_icon"
+                android:layout_centerHorizontal="true"/>
+
+
+
+    </RelativeLayout>
+    <!--Login/Sign up-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/secondary1">
+
+        <!--Username-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/id_username"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            app:startIconDrawable="@drawable/icon_username"
+            app:errorEnabled="true"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/str_username"
+
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--Password-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/id_password"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_username"
+            android:layout_centerHorizontal="true"
+
+            app:startIconDrawable="@drawable/icons_password"
+            app:endIconMode="password_toggle"
+            app:errorEnabled="true"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/str_password"
+                android:inputType="textPassword"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--Sign in button-->
+        <Button
+            android:id="@+id/id_bt_sign_in"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/id_password"
+            android:layout_centerHorizontal="true"
+
+            android:backgroundTint="@color/secondary"
+            android:text="@string/str_bt_sign_in"
+
+            />
+        <!--Sign up now-->
+
+        <TextView
+            android:id="@+id/id_tx_sign_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_bt_sign_in"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="@string/str_top_sign_up"
+            android:textColor="@color/primary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_sign_up"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:textColor="@color/secondary"
+            android:id="@+id/id_sign_up"
+            android:layout_below="@id/id_tx_sign_up"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_terms_conditions"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="40dp"
+            android:textColor="@color/primary"/>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

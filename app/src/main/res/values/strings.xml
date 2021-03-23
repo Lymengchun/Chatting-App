@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Chatting app</string>
+    <string name="str_top_sign_up">Don\'t have an account?</string>
+    <string name="str_bt_sign_in">SING IN</string>
+    <string name="str_username">Username</string>
+    <string name="str_password">Password</string>
+    <string name="str_sign_up">SIGN UP NOW</string>
+    <string name="str_terms_conditions">Terms and Conditions</string>
+    <string name="title_activity_sign_up">activity_sign_up</string>
+    <string name="title_sign_up">SIGN UP</string>
+
+
+
+
+
 </resources>
