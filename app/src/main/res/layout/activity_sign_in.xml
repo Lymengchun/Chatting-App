@@ -60,6 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/str_username"
+                android:inputType="textPersonName"
 
                 />
 
@@ -95,7 +96,7 @@
             android:layout_centerHorizontal="true"
 
             android:backgroundTint="@color/secondary"
-            android:text="@string/str_bt_sign_in"
+            android:text="@string/bt_str_sign_in"
 
             />
         <!--Sign up now-->
@@ -110,7 +111,8 @@
             android:text="@string/str_top_sign_up"
             android:textColor="@color/primary" />
 
-        <TextView
+        <Button
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/str_sign_up"
@@ -119,7 +121,9 @@
             android:textColor="@color/secondary"
             android:id="@+id/id_sign_up"
             android:layout_below="@id/id_tx_sign_up"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            />
 
         <TextView
             android:layout_width="wrap_content"

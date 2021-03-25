@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+android:layout_height="match_parent"
+android:layout_width="match_parent"
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+android:background="@color/secondary"
+    >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="70dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/icon_chatting_app"
+        android:id="@+id/id_icon"
+        />
+
+    <TextView
+        android:id="@+id/id_str_title"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="@color/secondary1"
+        android:layout_below="@id/id_icon"
+        android:layout_centerHorizontal="true"/>
+    <!--        welcome to chatting app text        -->
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_welcome"
+        android:textColor="@color/secondary1"
+        android:layout_below="@+id/id_str_title"
+        android:layout_centerHorizontal="true"
+        />
+    <Button
+        android:id="@+id/id_bt_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bt_str_start"
+        android:textSize="20dp"
+        android:textColor="@color/secondary"
+        android:backgroundTint="@color/secondary1"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="250dp"
+        />
+
+</RelativeLayout>
+
+</LinearLayout>

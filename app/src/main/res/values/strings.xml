@@ -1,16 +1,26 @@
 <resources>
     <string name="app_name">Chatting app</string>
     <string name="str_top_sign_up">Don\'t have an account?</string>
-    <string name="str_bt_sign_in">SING IN</string>
+    <string name="bt_str_sign_in">SING IN</string>
     <string name="str_username">Username</string>
+    <string name="str_fullname">Fullname</string>
+    <string name="str_email">Email</string>
     <string name="str_password">Password</string>
+    <string name="str_new_password">New Password</string>
     <string name="str_sign_up">SIGN UP NOW</string>
     <string name="str_terms_conditions">Terms and Conditions</string>
     <string name="title_activity_sign_up">activity_sign_up</string>
     <string name="title_sign_up">SIGN UP</string>
-
-
-
+    <string name="bt_str_create">Create</string>
+    <string name="str_repeat_password">Repeat Password</string>
+    <string name="bt_str_start">Start Chatting App</string>
+    <string name="str_welcome">Welcome to Chatting App</string>
+    <string name="title_activity_start">StartActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
 
 
 </resources>
