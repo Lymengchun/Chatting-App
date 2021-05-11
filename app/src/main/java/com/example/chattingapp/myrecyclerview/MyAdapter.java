@@ -12,13 +12,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chattingapp.R;
 
+import java.util.ArrayList;
+
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     String data1[],data2[];
-    int images[];
+    ArrayList<Integer> images;
     Context context;
 
-    public MyAdapter(Context ct, String s1[], String s2[], int img[]){
+    public MyAdapter(Context ct, String[] s1, String[] s2, ArrayList<Integer> img){
         context = ct;
         data1 = s1;
         data2 = s2;
@@ -37,12 +39,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void onBindViewHolder(@NonNull MyAdapter.MyViewHolder holder, int position) {
         holder.username.setText(data1[position]);
         holder.recently_chat.setText(data2[position]);
-        holder.myImage.setImageResource(images[position]);
+        holder.myImage.setImageResource(images.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return images.length;
+        return images.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

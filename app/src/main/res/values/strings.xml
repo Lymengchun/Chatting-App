@@ -17,6 +17,8 @@
     <string name="str_welcome">Welcome to Chatting App</string>
     <string name="title_activity_start">StartActivity</string>
     <string name="str_profile_username">Username</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.
@@ -36,10 +38,44 @@
         <item>MengLeang</item>
         <item>Vichika</item>
         <item>Sokhorn</item>
+        <item>MengLeang</item>
+        <item>Vichika</item>
+        <item>Sokhorn</item>
+        <item>MengLeang</item>
+        <item>Vichika</item>
+        <item>Sokhorn</item>
+        <item>Lymeng</item>
+        <item>Sambath</item>
+        <item>MengLeang</item>
+        <item>Vichika</item>
+        <item>Sokhorn</item>
+        <item>MengLeang</item>
+        <item>Vichika</item>
+        <item>Sokhorn</item>
+        <item>MengLeang</item>
+        <item>Vichika</item>
+        <item>Sokhorn</item>
+        <item>MengLeang</item>
+        <item>Vichika</item>
+        <item>Sokhorn</item>
+        <item>MengLeang</item>
+        <item>Vichika</item>
+        <item>Sokhorn</item>
 
     </string-array>
     
     <string-array name="description">
+        <item>hi</item>
+        <item>Hello😂</item>
+        <item>kal na nh mean sneha😂</item>
+        <item>merl srey sart ot😂</item>
+        <item>nh nv single sl nh ot😂</item>
+        <item>Hello😂</item>
+        <item>kal na nh mean sneha😂</item>
+        <item>merl srey sart ot😂</item>
+        <item>nh nv single sl nh ot😂</item>
+        <item>merl srey sart ot😂</item>
+        <item>nh nv single sl nh ot😂</item>
         <item>hi</item>
         <item>Hello😂</item>
         <item>kal na nh mean sneha😂</item>
