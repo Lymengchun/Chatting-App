@@ -27,7 +27,8 @@
 
         </activity>
         <!-- sign in -->
-        <activity android:name=".activity_sign_in">
+        <activity android:name=".activity_sign_in"
+            android:screenOrientation="portrait">
 
 
         </activity>
