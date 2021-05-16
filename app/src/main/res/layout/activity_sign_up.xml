@@ -49,6 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/secondary1"
+
         >
 <!--        Title Sign up       -->
         <TextView
@@ -58,40 +59,44 @@
             android:textSize="20dp"
             android:textStyle="bold"
             android:textColor="@color/secondary"
-            android:layout_margin="20dp"
-            android:id="@+id/id_title_sign_up"
-            />
+            android:layout_margin="50dp"
 
-        <!--Fullname-->
+            android:id="@+id/id_title_sign_up"
+
+            />
+        <!--Username-->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/id_fullname"
+            android:id="@+id/id_username_sign_up"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/id_title_sign_up"
             app:startIconDrawable="@drawable/icon_username"
+            android:layout_below="@id/id_title_sign_up"
             app:errorEnabled="true"
             app:endIconMode="clear_text"
             app:counterEnabled="true"
             app:counterMaxLength="20">
 
-            <com.google.android.material.textfield.TextInputEditText
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/SignUpUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/str_fullname"
+                android:hint="@string/str_username"
                 android:inputType="textPersonName"
 
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
+
+
         <!--Email-->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/id_email"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/id_fullname"
+            android:layout_below="@+id/id_username_sign_up"
             app:startIconDrawable="@drawable/icons_mail"
             app:errorEnabled="true"
             app:endIconMode="clear_text"
@@ -101,7 +106,7 @@
 
 
             <com.google.android.material.textfield.TextInputEditText
-
+                android:id="@+id/SignUpEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/str_email"
@@ -111,37 +116,36 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!--Username-->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/id_username_sign_up"
-            android:layout_width="330dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/id_email"
-            app:startIconDrawable="@drawable/icon_username"
-            app:errorEnabled="true"
-            app:endIconMode="clear_text"
-            app:counterEnabled="true"
-            app:counterMaxLength="20">
 
+<!--        &lt;!&ndash;Fullname&ndash;&gt;-->
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/id_fullname"-->
+<!--            android:layout_width="330dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_below="@+id/id_title_sign_up"-->
+<!--            app:startIconDrawable="@drawable/icon_username"-->
+<!--            app:errorEnabled="true"-->
+<!--            app:endIconMode="clear_text"-->
+<!--            app:counterEnabled="true"-->
+<!--            app:counterMaxLength="20">-->
 
+<!--            <com.google.android.material.textfield.TextInputEditText-->
 
-            <com.google.android.material.textfield.TextInputEditText
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="@string/str_fullname"-->
+<!--                android:inputType="textPersonName"-->
 
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/str_username"
-                android:inputType="textPersonName"
+<!--                />-->
 
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
         <!--new Password-->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/id_new_password"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/id_username_sign_up"
+            android:layout_below="@+id/id_email"
             android:layout_centerHorizontal="true"
 
             app:startIconDrawable="@drawable/icons_password"
@@ -150,7 +154,7 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
-
+                android:id="@+id/SignUpPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/str_new_password"
@@ -159,34 +163,35 @@
 
         </com.google.android.material.textfield.TextInputLayout>
         <!--repeat Password-->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/id_repeat_password"
-            android:layout_width="330dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/id_new_password"
-            android:layout_centerHorizontal="true"
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/id_repeat_password"-->
+<!--            android:layout_width="330dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/id_new_password"-->
+<!--            android:layout_centerHorizontal="true"-->
 
-            app:startIconDrawable="@drawable/icons_password"
-            app:endIconMode="password_toggle"
-            app:errorEnabled="true"
-            >
+<!--            app:startIconDrawable="@drawable/icons_password"-->
+<!--            app:endIconMode="password_toggle"-->
+<!--            app:errorEnabled="true"-->
 
-            <com.google.android.material.textfield.TextInputEditText
+<!--            >-->
 
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/str_repeat_password"
-                android:inputType="textPassword"
-                />
+<!--            <com.google.android.material.textfield.TextInputEditText-->
 
-        </com.google.android.material.textfield.TextInputLayout>
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="@string/str_repeat_password"-->
+<!--                android:inputType="textPassword"-->
+<!--                />-->
+
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
         <!--create button-->
         <Button
             android:layout_marginTop="40dp"
             android:id="@+id/id_bt_create"
             android:layout_width="330dp"
             android:layout_height="60dp"
-            android:layout_below="@+id/id_repeat_password"
+            android:layout_below="@+id/id_new_password"
             android:layout_centerHorizontal="true"
 
             android:backgroundTint="@color/secondary"

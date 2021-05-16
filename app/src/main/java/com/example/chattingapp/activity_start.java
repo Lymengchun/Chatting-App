@@ -25,20 +25,6 @@ public class activity_start extends AppCompatActivity {
             }
         },2000);
 
-
-
-
-//        startButton = findViewById(R.id.id_bt_start);
-//        startButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                openSignInActivity();
-//            }
-//        });
-
-
-
-
     }
     public void OnGetStartedClick(View view){
         startMainActivity();
@@ -46,7 +32,7 @@ public class activity_start extends AppCompatActivity {
 
     private void startMainActivity(){
         Intent intent = new Intent(this,activity_sign_in.class);
-//        Intent intent = new Intent(this,MainActivity.class);
+
         startActivity(intent);
         finish();
     }

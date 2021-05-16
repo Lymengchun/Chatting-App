@@ -24,9 +24,9 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
 
-    String s1[],s2[];
+    private String s1[],s2[];
 
-    ArrayList<Integer> images = new ArrayList<>();
+    private ArrayList<Integer> images = new ArrayList<>();
 
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;

@@ -23,12 +23,15 @@
         </activity>
 
         <!-- Sign up_Activity -->
-        <activity android:name=".activity_sign_up">
+        <activity android:name=".activity_sign_up"
 
+            >
         </activity>
         <!-- sign in -->
         <activity android:name=".activity_sign_in"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+
+            >
 
 
         </activity>

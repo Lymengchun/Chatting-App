@@ -44,23 +44,23 @@
         android:layout_height="match_parent"
         android:background="@color/secondary1">
 
-        <!--Username-->
+        <!--email-->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/id_username"
+            android:id="@+id/id_email"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
-            app:startIconDrawable="@drawable/icon_username"
+            app:startIconDrawable="@drawable/icons_mail"
             app:errorEnabled="true"
 
             >
 
             <com.google.android.material.textfield.TextInputEditText
-
+                android:id="@+id/Email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/str_username"
+                android:hint="@string/str_email"
                 android:inputType="textPersonName"
 
                 />
@@ -71,7 +71,7 @@
             android:id="@+id/id_password"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/id_username"
+            android:layout_below="@+id/id_email"
             android:layout_centerHorizontal="true"
 
             app:startIconDrawable="@drawable/icons_password"
@@ -80,7 +80,7 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
-
+                android:id="@+id/Password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/str_password"
