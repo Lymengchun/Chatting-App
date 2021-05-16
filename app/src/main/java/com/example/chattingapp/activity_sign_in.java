@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
  public class activity_sign_in extends AppCompatActivity {
 
 
-    private TextInputEditText email, password;
+    private TextInputEditText email, password,username;
     private Button btn_login, btn_register;
     private FirebaseAuth auth;
 
@@ -35,6 +35,7 @@ import com.google.firebase.auth.FirebaseAuth;
         auth = FirebaseAuth.getInstance();
         email =(TextInputEditText)  findViewById(R.id.Email);
         password =(TextInputEditText)  findViewById(R.id.Password);
+
 
         btn_login = findViewById(R.id.id_bt_sign_in);
         btn_register = findViewById(R.id.id_sign_up);
@@ -50,6 +51,7 @@ import com.google.firebase.auth.FirebaseAuth;
                     Toast.makeText(activity_sign_in.this,"All filed are required",Toast.LENGTH_SHORT).show();
 
                 }else{
+
                     auth.signInWithEmailAndPassword(txt_email,txt_password)
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override

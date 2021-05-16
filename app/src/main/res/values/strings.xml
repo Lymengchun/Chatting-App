@@ -6,7 +6,7 @@
     <string name="str_fullname">Fullname</string>
     <string name="str_email">Email</string>
     <string name="str_password">Password</string>
-    <string name="str_new_password">New Password</string>
+    <string name="str_new_password">Password</string>
     <string name="str_sign_up">SIGN UP NOW</string>
     <string name="str_terms_conditions">Terms and Conditions</string>
     <string name="title_activity_sign_up">activity_sign_up</string>
@@ -63,7 +63,7 @@
         <item>Sokhorn</item>
 
     </string-array>
-    
+
     <string-array name="description">
         <item>hi</item>
         <item>Hello😂</item>
@@ -88,6 +88,7 @@
         <item>merl srey sart ot😂</item>
         <item>nh nv single sl nh ot😂</item>
     </string-array>
+    <string name="title_activity_forget_password">activity_forget_password</string>
 
 
 </resources>
