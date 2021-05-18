@@ -1,5 +1,6 @@
 package com.example.chattingapp;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,19 +9,34 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList; // import the ArrayList class
 
+import com.bumptech.glide.Glide;
+import com.example.chattingapp.Model.User;
 import com.example.chattingapp.myrecyclerview.MyAdapter;
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-public class MainActivity extends AppCompatActivity {
+import de.hdodenhof.circleimageview.CircleImageView;
+
+public class MainActivity extends AppCompatActivity{
 
     RecyclerView recyclerView;
 
@@ -31,6 +47,14 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
+
+    //get image to profile header from database
+    private CircleImageView profile_image;
+    private TextView username;
+    private FirebaseUser firebaseUser;
+    private DatabaseReference reference;
+
+
 
 
     @Override
@@ -47,19 +71,48 @@ public class MainActivity extends AppCompatActivity {
         s1 = getResources().getStringArray(R.array.all_chat);
         s2 = getResources().getStringArray(R.array.description);
 
+        //setAdapter
         MyAdapter myAdapter = new MyAdapter(this,s1,s2,images);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        //get image to profile header from database
+        NavigationView navigationView = (NavigationView) findViewById(R.id.drawer);
+        View headerView = navigationView.getHeaderView(0);
+        username = (TextView) headerView.findViewById(R.id.profile_username);
+        profile_image = (CircleImageView) headerView.findViewById(R.id.id_profile);
+
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User user = snapshot.getValue(User.class);
+                username.setText(user.getUsername());
+                if(user.getImageURL().equals("default")){
+                    profile_image.setImageResource(R.drawable.profile);
+                }else{
+                    Glide.with(MainActivity.this).load(user.getImageURL()).into(profile_image);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
 
     }
 
+    //Menu on toolbar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater=getMenuInflater();
         inflater.inflate(R.menu.toolbar_menu,menu);
-
+//        getMenuInflater().inflate(R.menu.toolbar_menu,menu);
 
         MenuItem.OnActionExpandListener onActionExpandListener= new MenuItem.OnActionExpandListener() {
             @Override
@@ -77,8 +130,23 @@ public class MainActivity extends AppCompatActivity {
         menu.findItem(R.id.search).setOnActionExpandListener(onActionExpandListener);
         SearchView searchView=(SearchView) menu.findItem(R.id.search).getActionView();
         searchView.setQueryHint("search chats...");
+
+
+
         return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.logout:
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(MainActivity.this,activity_sign_in.class));
+                finish();
+                return true;
+        }
+        return false;
+    };
 
     void addImage(){
         //add image
@@ -93,11 +161,10 @@ public class MainActivity extends AppCompatActivity {
         images.add(R.drawable.profile);
         images.add(R.drawable.profile);
         images.add(R.drawable.profile);
-        images.add(R.drawable.profile);
-        images.add(R.drawable.profile);
-        images.add(R.drawable.profile);
+
     }
 
+    //Toolbar
     void initToolbar(){
         // create reference to toolbar view
         toolbar = findViewById(R.id.toolbar);
@@ -116,6 +183,8 @@ public class MainActivity extends AppCompatActivity {
         actionBarDrawerToggle.syncState();
 
     }
+
+
 
 
 

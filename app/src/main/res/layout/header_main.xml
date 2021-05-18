@@ -9,17 +9,17 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
-        <ImageView
+
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/id_profile"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/profile"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
-
-            />
+            android:layout_marginTop="20dp"
+            android:src="@drawable/profile" />
 
         <TextView
+            android:id="@+id/profile_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/str_profile_username"

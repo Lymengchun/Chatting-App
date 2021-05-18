@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.chattingapp">
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+<!--    <uses-permission android:name="android.permission.WAKE_LOCK" />-->
 
-    <uses-feature android:name="android.hardware.type.watch" />
+<!--    <uses-feature android:name="android.hardware.type.watch" />-->
 
     <application
         android:allowBackup="true"
@@ -13,39 +13,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ChattingApp">
-        <uses-library
-            android:name="com.google.android.wearable"
-            android:required="true" />
 
-        <!--
-               Set to true if your app is Standalone, that is, it does not require the handheld
-               app to run.
-        -->
-        <meta-data
-            android:name="com.google.android.wearable.standalone"
-            android:value="true" />
 
-        <activity
-            android:name=".activity_forget_password"
-            android:label="@string/title_activity_forget_password">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name=".activity_start">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- Sign up_Activity -->
-        <activity android:name=".activity_sign_up"></activity> <!-- sign in -->
+        </activity>
+
+        <!-- Sign up_Activity -->
+        <activity android:name=".activity_sign_up"></activity>
+        <!-- sign in -->
         <activity
             android:name=".activity_sign_in"
-            android:screenOrientation="portrait"></activity> <!-- Main_Activity -->
+            android:screenOrientation="portrait">
+        </activity>
+        <!-- Main_Activity -->
         <activity android:name=".MainActivity" />
+
     </application>
 
 </manifest>

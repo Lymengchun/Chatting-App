@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -16,6 +17,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
  public class activity_sign_in extends AppCompatActivity {
@@ -23,13 +25,27 @@ import com.google.firebase.auth.FirebaseAuth;
 
     private TextInputEditText email, password,username;
     private Button btn_login, btn_register;
-    private FirebaseAuth auth;
 
-    @Override
+    private FirebaseAuth auth;
+    private FirebaseUser firebaseUser;
+
+     @Override
+     protected void onStart() {
+         super.onStart();
+
+         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
+         //check if user is null
+         if (firebaseUser != null){
+             startActivity(new Intent(activity_sign_in.this,MainActivity.class));
+             finish();
+         }
+     }
+
+     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-
 
 
         auth = FirebaseAuth.getInstance();
@@ -39,6 +55,10 @@ import com.google.firebase.auth.FirebaseAuth;
 
         btn_login = findViewById(R.id.id_bt_sign_in);
         btn_register = findViewById(R.id.id_sign_up);
+
+
+
+
 
         btn_login.setOnClickListener(new View.OnClickListener(){
             @Override

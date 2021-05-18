@@ -11,6 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chattingapp.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -20,12 +24,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     ArrayList<Integer> images;
     Context context;
 
+    FirebaseUser firebaseUser;
+    DatabaseReference reference;
+
+
     public MyAdapter(Context ct, String[] s1, String[] s2, ArrayList<Integer> img){
         context = ct;
         data1 = s1;
         data2 = s2;
         images = img;
     }
+
 
     @NonNull
     @Override
@@ -58,7 +67,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             username = itemView.findViewById(R.id.name);
             recently_chat = itemView.findViewById(R.id.recently_chat);
             myImage = itemView.findViewById(R.id.profile);
-
 
         }
     }
