@@ -26,6 +26,8 @@ public class activity_sign_up extends AppCompatActivity {
 
     private TextInputEditText username, email, password;
     private Button btn_register;
+
+    //firebase
     private FirebaseAuth auth;
     private DatabaseReference reference;
 
@@ -64,6 +66,8 @@ public class activity_sign_up extends AppCompatActivity {
             }
         });
     }
+
+    //register account to database
     private void register( String username, String email,String password){
 
         auth.createUserWithEmailAndPassword(email,password)

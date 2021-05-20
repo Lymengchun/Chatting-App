@@ -90,6 +90,8 @@
         <item>nh nv single sl nh ot😂</item>
     </string-array>
     <string name="title_activity_forget_password">activity_forget_password</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

@@ -1,17 +1,20 @@
 package com.example.chattingapp;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
+
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
+
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -24,8 +27,11 @@ import java.util.ArrayList; // import the ArrayList class
 
 import com.bumptech.glide.Glide;
 import com.example.chattingapp.Model.User;
+
 import com.example.chattingapp.myrecyclerview.MyAdapter;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.tabs.TabItem;
+import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -82,6 +88,7 @@ public class MainActivity extends AppCompatActivity{
         username = (TextView) headerView.findViewById(R.id.profile_username);
         profile_image = (CircleImageView) headerView.findViewById(R.id.id_profile);
 
+//        firebaseUser and reference
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
 
@@ -103,7 +110,34 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
+        //TabLayout
+        TabLayout tabLayout = findViewById(R.id.tab_layout);
+        TabItem tabChats = findViewById(R.id.tab_item1_chats);
+        TabItem tabUsers = findViewById(R.id.tab_item2_users);
+        ViewPager viewPager = findViewById(R.id.view_pager);
 
+        //pager adapter
+        PagerAdapter pagerAdapter = new
+                PagerAdapter(getSupportFragmentManager(),
+                            tabLayout.getTabCount());
+        viewPager.setAdapter(pagerAdapter);
+        //tab is selected or clicked
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
 
     }
 
@@ -148,21 +182,6 @@ public class MainActivity extends AppCompatActivity{
         return false;
     };
 
-    void addImage(){
-        //add image
-        images.add(R.drawable.profile);
-        images.add(R.drawable.profile);
-        images.add(R.drawable.profile);
-        images.add(R.drawable.profile);
-        images.add(R.drawable.profile);
-        images.add(R.drawable.profile);
-        images.add(R.drawable.profile);
-        images.add(R.drawable.profile);
-        images.add(R.drawable.profile);
-        images.add(R.drawable.profile);
-        images.add(R.drawable.profile);
-
-    }
 
     //Toolbar
     void initToolbar(){
@@ -184,6 +203,22 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
+    //function add image
+    void addImage(){
+        //add image
+        images.add(R.drawable.profile);
+        images.add(R.drawable.profile);
+        images.add(R.drawable.profile);
+        images.add(R.drawable.profile);
+        images.add(R.drawable.profile);
+        images.add(R.drawable.profile);
+        images.add(R.drawable.profile);
+        images.add(R.drawable.profile);
+        images.add(R.drawable.profile);
+        images.add(R.drawable.profile);
+        images.add(R.drawable.profile);
+
+    }
 
 
 
