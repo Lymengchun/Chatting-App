@@ -2,9 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.chattingapp">
 
-<!--    <uses-permission android:name="android.permission.WAKE_LOCK" />-->
 
-<!--    <uses-feature android:name="android.hardware.type.watch" />-->
 
     <application
         android:allowBackup="true"
@@ -23,17 +21,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <!-- Sign up_Activity -->
-        <activity android:name=".activity_sign_up"></activity>
-        <!-- sign in -->
+        <activity android:name=".activity_sign_up" /> <!-- sign in -->
         <activity
             android:name=".activity_sign_in"
             android:screenOrientation="portrait">
         </activity>
         <!-- Main_Activity -->
         <activity android:name=".MainActivity" />
-
     </application>
 
 </manifest>

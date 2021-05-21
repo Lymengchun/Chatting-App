@@ -24,74 +24,16 @@
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.
     -->
-    <string name="hello_world">Hello Square World!</string>
 
-
-    <string-array name="all_chat">
-        <item>Lymeng</item>
-        <item>Sambath</item>
-        <item>MengLeang</item>
-        <item>Vichika</item>
-        <item>Sokhorn</item>
-        <item>MengLeang</item>
-        <item>Vichika</item>
-        <item>Sokhorn</item>
-        <item>MengLeang</item>
-        <item>Vichika</item>
-        <item>Sokhorn</item>
-        <item>MengLeang</item>
-        <item>Vichika</item>
-        <item>Sokhorn</item>
-        <item>MengLeang</item>
-        <item>Vichika</item>
-        <item>Sokhorn</item>
-        <item>Lymeng</item>
-        <item>Sambath</item>
-        <item>MengLeang</item>
-        <item>Vichika</item>
-        <item>Sokhorn</item>
-        <item>MengLeang</item>
-        <item>Vichika</item>
-        <item>Sokhorn</item>
-        <item>MengLeang</item>
-        <item>Vichika</item>
-        <item>Sokhorn</item>
-        <item>MengLeang</item>
-        <item>Vichika</item>
-        <item>Sokhorn</item>
-        <item>MengLeang</item>
-        <item>Vichika</item>
-        <item>Sokhorn</item>
-
-    </string-array>
-
-    <string-array name="description">
-        <item>hi</item>
-        <item>Hello😂</item>
-        <item>kal na nh mean sneha😂</item>
-        <item>merl srey sart ot😂</item>
-        <item>nh nv single sl nh ot😂</item>
-        <item>Hello😂</item>
-        <item>kal na nh mean sneha😂</item>
-        <item>merl srey sart ot😂</item>
-        <item>nh nv single sl nh ot😂</item>
-        <item>merl srey sart ot😂</item>
-        <item>nh nv single sl nh ot😂</item>
-        <item>hi</item>
-        <item>Hello😂</item>
-        <item>kal na nh mean sneha😂</item>
-        <item>merl srey sart ot😂</item>
-        <item>nh nv single sl nh ot😂</item>
-        <item>Hello😂</item>
-        <item>kal na nh mean sneha😂</item>
-        <item>merl srey sart ot😂</item>
-        <item>nh nv single sl nh ot😂</item>
-        <item>merl srey sart ot😂</item>
-        <item>nh nv single sl nh ot😂</item>
-    </string-array>
     <string name="title_activity_forget_password">activity_forget_password</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_message">activity_message</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
 
 
 </resources>

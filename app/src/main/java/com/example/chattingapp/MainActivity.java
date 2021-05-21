@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
@@ -28,7 +27,6 @@ import java.util.ArrayList; // import the ArrayList class
 import com.bumptech.glide.Glide;
 import com.example.chattingapp.Model.User;
 
-import com.example.chattingapp.myrecyclerview.MyAdapter;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
@@ -72,16 +70,16 @@ public class MainActivity extends AppCompatActivity{
         initToolbar();
 
 
-        recyclerView = findViewById(R.id.recyclerView);
-
-        s1 = getResources().getStringArray(R.array.all_chat);
-        s2 = getResources().getStringArray(R.array.description);
-
-        //setAdapter
-        MyAdapter myAdapter = new MyAdapter(this,s1,s2,images);
-        recyclerView.setAdapter(myAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+//        recyclerView = findViewById(R.id.recyclerView);
+//
+//        s1 = getResources().getStringArray(R.array.all_chat);
+//        s2 = getResources().getStringArray(R.array.description);
+//
+//        //setAdapter
+//        MyAdapter myAdapter = new MyAdapter(this,s1,s2,images);
+//        recyclerView.setAdapter(myAdapter);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//
         //get image to profile header from database
         NavigationView navigationView = (NavigationView) findViewById(R.id.drawer);
         View headerView = navigationView.getHeaderView(0);
