@@ -9,7 +9,26 @@
         android:id="@+id/toolbar"
         android:background="@color/secondary"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"/>
+        android:layout_height="?attr/actionBarSize">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/profile"
+            android:id="@+id/profile_toolbar"
+            android:layout_marginLeft="70dp"
+            android:visibility="invisible"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Username"
+            android:id="@+id/username_toolbar"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:visibility="invisible"
+            />
+    </androidx.appcompat.widget.Toolbar>
 
 
 

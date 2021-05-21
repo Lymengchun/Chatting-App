@@ -11,9 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -42,7 +45,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity{
 
-    RecyclerView recyclerView;
+
 
     private String s1[],s2[];
 
@@ -70,16 +73,6 @@ public class MainActivity extends AppCompatActivity{
         initToolbar();
 
 
-//        recyclerView = findViewById(R.id.recyclerView);
-//
-//        s1 = getResources().getStringArray(R.array.all_chat);
-//        s2 = getResources().getStringArray(R.array.description);
-//
-//        //setAdapter
-//        MyAdapter myAdapter = new MyAdapter(this,s1,s2,images);
-//        recyclerView.setAdapter(myAdapter);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//
         //get image to profile header from database
         NavigationView navigationView = (NavigationView) findViewById(R.id.drawer);
         View headerView = navigationView.getHeaderView(0);
