@@ -2,34 +2,40 @@ package com.example.chattingapp;
 
 import androidx.annotation.NonNull;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 
-import android.content.Context;
+import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.Intent;
-import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.os.Bundle;
 
-import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList; // import the ArrayList class
+import java.util.HashMap;
 
 import com.bumptech.glide.Glide;
 import com.example.chattingapp.Model.User;
 
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
@@ -40,6 +46,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
+import com.google.firebase.storage.UploadTask;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -61,6 +71,10 @@ public class MainActivity extends AppCompatActivity{
     private FirebaseUser firebaseUser;
     private DatabaseReference reference;
 
+//    StorageReference storageReference;
+//    private static final int IMAGE_REQUEST = 1;
+//    private Uri imageUri;
+//    private StorageTask uploadTask;
 
 
 
@@ -69,7 +83,7 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        addImage();
+
         initToolbar();
 
 
@@ -79,7 +93,11 @@ public class MainActivity extends AppCompatActivity{
         username = (TextView) headerView.findViewById(R.id.profile_username);
         profile_image = (CircleImageView) headerView.findViewById(R.id.id_profile);
 
-//        firebaseUser and reference
+//        storageReference = FirebaseStorage.getInstance().getReference("uploads");
+
+
+
+        // firebaseUser and reference
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
 
@@ -100,6 +118,9 @@ public class MainActivity extends AppCompatActivity{
 
             }
         });
+
+
+
 
         //TabLayout
         TabLayout tabLayout = findViewById(R.id.tab_layout);
@@ -130,14 +151,23 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
+//        profile_image.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//                openImage();
+//            }
+//        }
+//        );
+
     }
+
 
     //Menu on toolbar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater=getMenuInflater();
         inflater.inflate(R.menu.toolbar_menu,menu);
-//        getMenuInflater().inflate(R.menu.toolbar_menu,menu);
+
 
         MenuItem.OnActionExpandListener onActionExpandListener= new MenuItem.OnActionExpandListener() {
             @Override
@@ -161,6 +191,7 @@ public class MainActivity extends AppCompatActivity{
         return true;
     }
 
+    //logout
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
@@ -194,24 +225,82 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
-    //function add image
-    void addImage(){
-        //add image
-        images.add(R.drawable.profile);
-        images.add(R.drawable.profile);
-        images.add(R.drawable.profile);
-        images.add(R.drawable.profile);
-        images.add(R.drawable.profile);
-        images.add(R.drawable.profile);
-        images.add(R.drawable.profile);
-        images.add(R.drawable.profile);
-        images.add(R.drawable.profile);
-        images.add(R.drawable.profile);
-        images.add(R.drawable.profile);
-
-    }
-
-
-
-
+    //upload picture
+//    private void openImage(){
+//        Intent intent = new Intent();
+//        intent.setType("image/*");
+//        intent.setAction(Intent.ACTION_GET_CONTENT);
+//        startActivityForResult(intent,IMAGE_REQUEST);
+//    }
+//
+//    private String getFileExtension(Uri uri){
+//        ContentResolver contentResolver = getBaseContext().getContentResolver();
+//        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+//        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
+//    }
+//
+//    private void uploadImage(){
+//        final ProgressDialog pd = new ProgressDialog(getBaseContext());
+//        pd.setMessage("uploading");
+//        pd.show();
+//
+//        if (imageUri != null){
+//            final StorageReference fileReference = storageReference.child(System.currentTimeMillis()
+//                    +"."+getFileExtension(imageUri));
+//
+//            uploadTask = fileReference.putFile(imageUri);
+//            uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot,Task<Uri>>() {
+//                @Override
+//                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+//                    if (!task.isSuccessful()){
+//                        throw task.getException();
+//                    }
+//                    return fileReference.getDownloadUrl();
+//                }
+//            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+//                @Override
+//                public void onComplete(@NonNull Task<Uri> task) {
+//                    if (task.isSuccessful()){
+//                        Uri downloadUri = task.getResult();
+//                        String mUri = downloadUri.toString();
+//
+//                        reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+//                        HashMap<String,Object>map = new HashMap<>();
+//                        map.put("imageURL",mUri);
+//                        reference.updateChildren(map);
+//
+//                        pd.dismiss();
+//                    }else {
+//                        Toast.makeText(getBaseContext(),"Failed!",Toast.LENGTH_SHORT).show();
+//                        pd.dismiss();
+//                    }
+//                }
+//            }).addOnFailureListener(new OnFailureListener() {
+//                @Override
+//                public void onFailure(@NonNull Exception e) {
+//                    Toast.makeText(getBaseContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+//                    pd.dismiss();
+//                }
+//            });
+//        }else{
+//            Toast.makeText(getBaseContext(),"No image selected",Toast.LENGTH_SHORT).show();
+//        }
+//
+//    }
+//
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//        if (requestCode == IMAGE_REQUEST && resultCode == RESULT_OK
+//               && data != null && data.getData() != null){
+//            imageUri = data.getData();
+//
+//            if (uploadTask != null && uploadTask.isInProgress()){
+//                Toast.makeText(getBaseContext(),"Upload in preogress",Toast.LENGTH_SHORT).show();
+//            }else{
+//                uploadImage();
+//            }
+//        }
+//    }
 }
