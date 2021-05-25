@@ -12,6 +12,7 @@ import androidx.viewpager.widget.ViewPager;
 
 
 import android.app.ProgressDialog;
+import android.content.ClipData;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity{
     //get image to profile header from database
     private CircleImageView profile_image;
     private TextView username;
+    private View about;
     private FirebaseUser firebaseUser;
     private DatabaseReference reference;
 
@@ -92,6 +94,18 @@ public class MainActivity extends AppCompatActivity{
         View headerView = navigationView.getHeaderView(0);
         username = (TextView) headerView.findViewById(R.id.profile_username);
         profile_image = (CircleImageView) headerView.findViewById(R.id.id_profile);
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.getItemId() == R.id.about){
+                    startActivity(new Intent(MainActivity.this,activity_about.class));
+                }
+
+                return true;
+            }
+        });
+
 
 //        storageReference = FirebaseStorage.getInstance().getReference("uploads");
 
@@ -150,6 +164,7 @@ public class MainActivity extends AppCompatActivity{
 
             }
         });
+
 
 //        profile_image.setOnClickListener(new View.OnClickListener(){
 //            @Override

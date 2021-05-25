@@ -1,21 +1,14 @@
 package com.example.chattingapp;
 
 import android.os.Bundle;
-import android.support.wearable.activity.WearableActivity;
-import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class activity_about extends WearableActivity {
+public class activity_about extends AppCompatActivity {
 
-    private TextView mTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-
-        mTextView = (TextView) findViewById(R.id.text);
-
-        // Enables Always-on
-        setAmbientEnabled();
     }
 }
