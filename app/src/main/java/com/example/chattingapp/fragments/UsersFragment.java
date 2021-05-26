@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.example.chattingapp.Model.User;
 import com.example.chattingapp.R;
@@ -31,7 +32,7 @@ public class UsersFragment extends Fragment {
     private RecyclerView recyclerView;
     private UserAdapter userAdapter;
     private List<User> mUsers;
-
+    private ProgressBar pb;
 
 
     @Override
@@ -42,7 +43,7 @@ public class UsersFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerView_users);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
+        pb = view.findViewById(R.id.pb);
          mUsers = new ArrayList<>();
          readUsers();
         return view;
@@ -68,6 +69,7 @@ public class UsersFragment extends Fragment {
                 }
                 userAdapter = new UserAdapter(getContext(),mUsers, true);
                 recyclerView.setAdapter(userAdapter);
+                pb.setVisibility(View.INVISIBLE);
             }
 
             @Override

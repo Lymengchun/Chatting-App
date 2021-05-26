@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.example.chattingapp.Model.Chat;
 import com.example.chattingapp.Model.Chatlist;
@@ -38,12 +39,15 @@ import java.util.List;
     FirebaseUser fUsers;
     DatabaseReference reference;
 
+    private ProgressBar pb;
     private List<Chatlist> usersList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chats,container,false);
+
+        pb = view.findViewById(R.id.pb);
 
         recyclerView = view.findViewById(R.id.recyclerView_chats);
         recyclerView.setHasFixedSize(true);
@@ -63,6 +67,7 @@ import java.util.List;
                     usersList.add(chatlist);
                 }
                 chatList();
+                pb.setVisibility(View.INVISIBLE);
             }
 
             @Override
