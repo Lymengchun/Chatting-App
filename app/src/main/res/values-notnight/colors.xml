@@ -12,4 +12,5 @@
     <color name="secondary1">#fef5de</color>
     <color name="secondary2">#2c9f5b</color>
     <color name="TextChat">#FFFFFFFF</color>
+    <color name="about">#FF000000</color>
 </resources>
